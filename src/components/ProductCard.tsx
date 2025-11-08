@@ -1,0 +1,48 @@
+// src/components/ProductCard.tsx
+import { Link } from 'react-router-dom'
+import type { Producto } from '../interfaces'
+import { useCart } from '../context/CartContext'
+
+export default function ProductCard({ producto }: { producto: Producto }) {
+  const { dispatch } = useCart()
+
+  // 1) Si ya viene como http(s) o empieza con / (public), úsala tal cual.
+  // 2) Si NO, asumimos que está en src/images y la resolvemos con Vite.
+  const src =
+    producto.imagen.startsWith('http') || producto.imagen.startsWith('/')
+      ? producto.imagen
+      : new URL(`../images/${producto.imagen}`, import.meta.url).href
+
+  const precio = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' })
+    .format(producto.precio)
+
+  return (
+    <div className="card h-100">
+      <img
+        src={src}
+        className="card-img-top"
+        alt={producto.nombre}
+        onError={(e) => {
+          console.error('No se pudo cargar la imagen:', src)
+          ;(e.currentTarget as HTMLImageElement).src = '/images/placeholder.png' // opcional
+        }}
+      />
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title">{producto.nombre}</h5>
+        <p className="text-success fw-bold">{precio}</p>
+        <div className="mt-auto d-flex justify-content-between">
+          <button
+            className="btn btn-accent btn-sm"
+            onClick={() => dispatch({ type: 'add', item: producto })}
+          >
+            Agregar
+          </button>
+          <Link to={`/productos/${producto.id}`} className="btn btn-outline-light btn-sm">
+            Ver
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
