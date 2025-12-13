@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { getProductos, createProducto, updateProducto, deleteProducto, getUsuarios, createUsuario, updateUsuario, deleteUsuario } from '../dataService'
-import type { Producto, Usuario } from '../interfaces'
+import { getProductos, createProducto, updateProducto, deleteProducto, getUsuarios, createUsuario, updateUsuario, deleteUsuario } from '../data/dataService'
+import type { Producto, Usuario } from '../data/interfaces'
 
 export default function Admin(){
   const [tab,setTab] = useState<'productos'|'usuarios'>('productos')

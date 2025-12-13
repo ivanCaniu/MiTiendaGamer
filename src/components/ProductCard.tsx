@@ -1,6 +1,6 @@
 // src/components/ProductCard.tsx
 import { Link } from 'react-router-dom'
-import type { Producto } from '../interfaces'
+import type { Producto } from '../data/interfaces'
 import { useCart } from '../context/CartContext'
 
 export default function ProductCard({ producto }: { producto: Producto }) {

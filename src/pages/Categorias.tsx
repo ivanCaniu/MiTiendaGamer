@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { getCategorias, getProductosPorCategoria } from '../dataService'
+import { getCategorias, getProductosPorCategoria } from '../data/dataService'
 import ProductCard from '../components/ProductCard'
 
 export default function Categorias(){

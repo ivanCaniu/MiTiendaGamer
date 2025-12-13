@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { getProductoById } from '../dataService'
+import { getProductoById } from '../data/dataService'
 import { useCart } from '../context/CartContext'
 
 export default function DetalleProducto(){

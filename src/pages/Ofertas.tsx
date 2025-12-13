@@ -1,4 +1,4 @@
-import { getOfertas } from '../dataService'
+import { getOfertas } from '../data/dataService'
 import ProductCard from '../components/ProductCard'
 
 export default function Ofertas(){

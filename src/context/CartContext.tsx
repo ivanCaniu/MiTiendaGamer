@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useReducer, useEffect, useMemo } from 'react'
-import type { Producto } from '../interfaces'
+import React,{ createContext, useContext, useReducer, useEffect, useMemo } from 'react'
+import type { Producto } from '../data/interfaces'
 
 type Item = Producto & { qty: number }
 interface State { items: Item[] }

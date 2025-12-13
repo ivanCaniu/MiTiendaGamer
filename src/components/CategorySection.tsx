@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getCategorias } from '../dataService'
+import { getCategorias } from '../data/dataService'
 
 export default function CategorySection(){
   const categorias = getCategorias()

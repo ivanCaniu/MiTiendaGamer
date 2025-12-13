@@ -1,6 +1,6 @@
 import Carousel from '../components/Carousel'
 import CategorySection from '../components/CategorySection'
-import { getProductos } from '../dataService'
+import { getProductos } from '../data/dataService'
 import ProductCard from '../components/ProductCard'
 
 export default function Home(){

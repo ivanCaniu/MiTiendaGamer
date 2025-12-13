@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { getProductos, getCategorias, searchProductos } from '../dataService'
+import { getProductos, getCategorias, searchProductos } from '../data/dataService'
 import ProductCard from '../components/ProductCard'
 
 export default function Productos(){

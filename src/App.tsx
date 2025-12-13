@@ -2,6 +2,8 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import Login from './pages/Login'
+import Registro from './pages/Registro'
 import Nosotros from './pages/Nosotros'
 import Tiendas from './pages/Tiendas'
 import Acerca from './pages/Acerca'
@@ -15,14 +17,20 @@ import CompraExitosa from './pages/CompraExitosa'
 import CompraFallida from './pages/CompraFallida'
 import Admin from './pages/Admin'
 import { CartProvider } from './context/CartContext'
+import ProtectedRoute from './components/ProtectedRoute'
+import { AuthProvider } from './context/AuthContext'
+
 
 export default function App(){
   return (
-    <CartProvider>
-      <Navbar/>
-      <main className="container py-4">
+    <AuthProvider>
+      <CartProvider>
+        <Navbar/>
+       <main className="container py-4">
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/registro" element={<Registro/>}/>
           <Route path="/nosotros" element={<Nosotros/>}/>
           <Route path="/tiendas" element={<Tiendas/>}/>
           <Route path="/acerca" element={<Acerca/>}/>
@@ -34,11 +42,14 @@ export default function App(){
           <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/compra-exitosa" element={<CompraExitosa/>}/>
           <Route path="/pago-rechazado" element={<CompraFallida/>}/>
-          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/admin" element={<ProtectedRoute requireAdmin={true}>
+            <Admin/>
+            </ProtectedRoute>}/>
           <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
-      </main>
-      <Footer/>
-    </CartProvider>
+       </main>
+       <Footer/>
+      </CartProvider>
+  </AuthProvider>
   )
 }
