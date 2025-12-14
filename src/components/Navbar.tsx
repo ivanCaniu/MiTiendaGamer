@@ -25,7 +25,6 @@ export default function Navbar() {
             {/* --- ENLACES PÚBLICOS (Visibles para todos) --- */}
             <li className="nav-item"><NavLink className="nav-link" to="/">Inicio</NavLink></li>
             <li className="nav-item"><NavLink className="nav-link" to="/productos">Productos</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="/categorias">Categorías</NavLink></li>
             <li className="nav-item"><NavLink className="nav-link" to="/ofertas">Ofertas</NavLink></li>
             <li className="nav-item"><NavLink className="nav-link" to="/tiendas">Tiendas</NavLink></li>
             <li className="nav-item"><NavLink className="nav-link" to="/nosotros">Nosotros</NavLink></li>

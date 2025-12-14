@@ -9,9 +9,9 @@ export default function ProductCard({ producto }: { producto: Producto }) {
   // 1) Si ya viene como http(s) o empieza con / (public), úsala tal cual.
   // 2) Si NO, asumimos que está en src/images y la resolvemos con Vite.
   const src =
-    producto.imagen.startsWith('http') || producto.imagen.startsWith('/')
-      ? producto.imagen
-      : new URL(`../images/${producto.imagen}`, import.meta.url).href
+    producto.imagenUrl.startsWith('http') || producto.imagenUrl.startsWith('/')
+      ? producto.imagenUrl
+      : new URL(`../images/${producto.imagenUrl}`, import.meta.url).href
 
   const precio = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' })
     .format(producto.precio)

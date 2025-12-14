@@ -9,7 +9,6 @@ import Tiendas from './pages/Tiendas'
 import Acerca from './pages/Acerca'
 import Productos from './pages/Productos'
 import Ofertas from './pages/Ofertas'
-import Categorias from './pages/Categorias'
 import DetalleProducto from './pages/DetalleProducto'
 import Carrito from './pages/Carrito'
 import Checkout from './pages/Checkout'
@@ -36,7 +35,6 @@ export default function App(){
           <Route path="/acerca" element={<Acerca/>}/>
           <Route path="/productos" element={<Productos/>}/>
           <Route path="/ofertas" element={<Ofertas/>}/>
-          <Route path="/categorias" element={<Categorias/>}/>
           <Route path="/productos/:id" element={<DetalleProducto/>}/>
           <Route path="/carrito" element={<Carrito/>}/>
           <Route path="/checkout" element={<Checkout/>}/>

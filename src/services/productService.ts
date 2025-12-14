@@ -13,13 +13,29 @@ const getAuthHeaders = () => {
     };
 };
 
-export const getProductos = async () => {
+export const getProductos = async (isOffer?: boolean) => {
     try {
-        const response = await axios.get(PRODUCT_API_URL);
+        let url = PRODUCT_API_URL;
+        
+        if (isOffer === true) {
+            url += '?oferta=true';
+        }
+        
+        const response = await axios.get(url);
         return response.data;
     } catch (error) {
         console.error("Error al obtener productos:", error);
-        return [];
+        return []; 
+    }
+};
+
+export const getProductoById = async (id: string | number) => {
+    try {
+        const response = await axios.get(`${PRODUCT_API_URL}/${id}`); 
+        return response.data;
+    } catch (error) {
+        console.error(`Error al obtener producto ${id}:`, error);
+        return null;
     }
 };
 
