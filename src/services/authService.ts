@@ -1,10 +1,9 @@
 
 import axios from 'axios';
-// Ajusta la URL base a donde corre tu backend (generalmente 8080)
 const API_BASE_URL = 'http://localhost:8080/api/v1'; 
+const PRODUCT_API_URL = "http://localhost:8081/api/v1/productos";
 const AUTH_URL = `${API_BASE_URL}/auth`;
 
-// Interfaz que coincide con el AuthResponse.java de tu backend
 export interface AuthResponse {
     token: string;
     nombre: string;
@@ -37,4 +36,44 @@ export const loginUser = async (email: string, password: string): Promise<AuthRe
         // Manejo específico de credenciales incorrectas
         throw new Error(error.response?.data?.message || "Credenciales incorrectas o error de servidor.");
     }
+};
+
+export const getProductos = async () => {
+    try {
+        const response = await axios.get(PRODUCT_API_URL);
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener productos:", error);
+        return [];
+    }
+};
+
+const getAuthHeaders = () => {
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+        throw new Error("No se encontró el token de autenticación.");
+    }
+    return {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    };
+};
+
+
+export const createProducto = async (productoData: any) => {
+    const headers = getAuthHeaders();
+    const response = await axios.post(PRODUCT_API_URL, productoData, headers);
+    return response.data;
+};
+
+export const updateProducto = async (id: number, productoData: any) => {
+    const headers = getAuthHeaders();
+    const response = await axios.put(`${PRODUCT_API_URL}/${id}`, productoData, headers);
+    return response.data;
+};
+
+export const deleteProducto = async (id: number) => {
+    const headers = getAuthHeaders();
+    await axios.delete(`${PRODUCT_API_URL}/${id}`, headers);
 };

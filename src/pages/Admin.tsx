@@ -19,8 +19,8 @@ export default function Admin(){
 
 function AdminProductos(){
   const [list,setList]=useState<Producto[]>(getProductos())
-  const [form,setForm]=useState<Omit<Producto,'id'>>({nombre:'',descripcion:'',precio:0,imagen:'',categoria:'',oferta:false})
-
+  const [form,setForm]=useState<Omit<Producto,'id'>>({nombre:'',descripcion:'',precio:0,stock:0, imagen:'',categoria:'',oferta:false})
+|
   function refresh(){ setList(getProductos()) }
   function onSubmit(e:React.FormEvent){ e.preventDefault(); if(!form.nombre||!form.categoria) return; createProducto(form); setForm({nombre:'',descripcion:'',precio:0,imagen:'',categoria:'',oferta:false}); refresh() }
   function toggleOffer(p:Producto){ updateProducto(p.id,{oferta:!p.oferta}); refresh() }
