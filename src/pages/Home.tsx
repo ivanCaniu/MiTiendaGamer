@@ -1,7 +1,7 @@
 import Carousel from '../components/Carousel'
 import React,{ useEffect, useState } from 'react' 
 import CategorySection from '../components/CategorySection'
-import { getProductos } from '../services/authService'
+import { getProductos } from '../services/productService';
 import ProductCard from '../components/ProductCard'
 
 export default function Home() {
