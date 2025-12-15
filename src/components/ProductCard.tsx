@@ -6,8 +6,6 @@ import { useCart } from '../context/CartContext'
 export default function ProductCard({ producto }: { producto: Producto }) {
   const { dispatch } = useCart()
 
-  // 1) Si ya viene como http(s) o empieza con / (public), úsala tal cual.
-  // 2) Si NO, asumimos que está en src/images y la resolvemos con Vite.
   const src =
     producto.imagenUrl.startsWith('http') || producto.imagenUrl.startsWith('/')
       ? producto.imagenUrl
@@ -24,7 +22,7 @@ export default function ProductCard({ producto }: { producto: Producto }) {
         alt={producto.nombre}
         onError={(e) => {
           console.error('No se pudo cargar la imagen:', src)
-          ;(e.currentTarget as HTMLImageElement).src = '/images/placeholder.png' // opcional
+          ;(e.currentTarget as HTMLImageElement).src = '/images/placeholder.png' 
         }}
       />
       <div className="card-body d-flex flex-column">

@@ -7,7 +7,6 @@ export default function Ofertas() {
 
     useEffect(() => {
         const fetchOffers = async () => {
-            // ✅ LLAMADA CLAVE: Pedir solo productos con oferta=true
             const data = await getProductos(true); 
             setList(data);
         };

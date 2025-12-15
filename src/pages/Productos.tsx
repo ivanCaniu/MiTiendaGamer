@@ -9,7 +9,7 @@ export default function Productos() {
     const [productos, setProductos] = useState([]); // Estado para almacenar TODOS los productos
     const [categorias, setCategorias] = useState<string[]>([]);// Estado para las categorías
 
-    // 2. Cargar productos y categorías al inicio (useEffect)
+    
     useEffect(() => {
         const fetchData = async () => {
             const allProducts = await getProductos();

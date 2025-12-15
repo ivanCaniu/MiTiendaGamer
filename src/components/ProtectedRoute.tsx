@@ -15,7 +15,7 @@ export default function ProtectedRoute({ children, requireAdmin = false }: Props
     return <Navigate to="/login" replace />;
   }
 
-  // 2. Si requiere admin y el usuario NO es admin, mandar al Home
+  
   if (requireAdmin && user.rol !== 'admin') {
     return <Navigate to="/" replace />;
   }
