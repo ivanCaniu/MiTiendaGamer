@@ -1,7 +1,8 @@
+
+
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
-import { createOrder, OrderPayload } from '../services/OrderService';
 
 export default function Checkout() {
     const { state, total, dispatch } = useCart();
@@ -15,31 +16,21 @@ export default function Checkout() {
 
         setLoading(true);
         
-        // 1. Mapear los ítems del carrito al formato que espera el Backend de Pedidos (8082)
-        const itemsPayload = state.items.map(item => ({
-            productoId: item.id!,
-            cantidad: item.qty,
-            precioUnitario: item.precio,
-        }));
-        
-        const payload: OrderPayload = {
-            items: itemsPayload,
-            direccion,
-            total,
-        };
-
         try {
-            // 2. Enviar la orden al Microservicio de Pedidos (8082)
-            await createOrder(payload);
-
-            // 3. Éxito: Vaciar el carrito
+            
+            await new Promise(resolve => setTimeout(resolve, 1000)); 
+            
+           
             dispatch({ type: 'clear' }); 
-            alert('¡Compra realizada con éxito! Recibirás un email de confirmación.');
-            navigate('/'); // Redirigir a Home o a la página de éxito
+            alert('¡Compra realizada con éxito! Revisa tu dirección: ' + direccion);
+            
+            // 3. Redirigir a Home o a la página de éxito
+            navigate('/'); 
 
         } catch (error) {
-            console.error('Fallo el proceso de checkout:', error);
-            alert('Fallo al procesar tu orden. Revisa el stock y que el Backend de Pedidos (8082) esté activo.');
+            // En la simulación, esto no debería ocurrir, pero mantenemos el bloque
+            console.error('Fallo el proceso de checkout simulado:', error);
+            alert('Fallo al procesar tu orden.');
         } finally {
             setLoading(false);
         }
@@ -51,7 +42,7 @@ export default function Checkout() {
 
     return (
         <section className="container-narrow py-5">
-            <h1 className="h3 mb-4">Finalizar Compra</h1>
+            <h1 className="h3 mb-4">Finalizar Compra (Simulación)</h1>
             
             <div className="row g-5">
                 {/* Columna de Formulario de Dirección */}
@@ -67,15 +58,14 @@ export default function Checkout() {
                                 required
                             />
                         </div>
-                        {/* Aquí se añadirían más campos (Ciudad, ZIP, etc.) y la forma de pago */}
                         
                         <button type="submit" className="btn btn-success btn-lg mt-3" disabled={loading || state.items.length === 0}>
-                            {loading ? 'Procesando...' : `Pagar $${new Intl.NumberFormat('es-CL').format(total)}`}
+                            {loading ? 'Procesando...' : `Pagar $${new Intl.NumberFormat('es-CL').format(total)} (Simulado)`}
                         </button>
                     </form>
                 </div>
 
-                {/* Columna de Resumen del Pedido */}
+                {/* Columna de Resumen del Pedido (sin cambios) */}
                 <div className="col-md-6">
                     <h5>Resumen ({state.items.length} productos)</h5>
                     <ul className="list-group mb-3">

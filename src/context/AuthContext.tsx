@@ -29,7 +29,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         const rolNormalizado = response.rol.toLowerCase() as 'cliente' | 'admin';
         
-        localStorage.setItem('jwtToken', response.token); 
+        localStorage.setItem('token', response.token); 
         localStorage.setItem('usuarioLogueado', JSON.stringify({ nombre: response.nombre, rol: rolNormalizado }));
         
         setUser({ nombre: response.nombre, rol: rolNormalizado } as any); // Actualizar el estado

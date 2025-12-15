@@ -39,18 +39,19 @@ export const loginUser = async (email: string, password: string): Promise<AuthRe
 
 
 
-const getAuthHeaders = () => {
-    const token = localStorage.getItem('jwtToken');
-    if (!token) {
-        throw new Error("No se encontró el token de autenticación.");
+export function getAuthHeaders() {
+    const token = localStorage.getItem('token'); 
+    
+    
+    if (token) {
+        return {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        };
     }
-    return {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    };
-};
-
+    
+    return {};
+}
 
 
 
