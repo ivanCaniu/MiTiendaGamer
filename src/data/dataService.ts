@@ -10,15 +10,17 @@ const seed: DB = {
       nombre:'PlayStation 5',
       descripcion:'Consola PS5 edición estándar',
       precio:649990, 
-      imagen: 'https://clsonyb2c.vtexassets.com/arquivos/ids/465172-800-800?v=638658958190900000&width=800&height=800&aspect=true', 
+      imagenUrl: 'https://clsonyb2c.vtexassets.com/arquivos/ids/465172-800-800?v=638658958190900000&width=800&height=800&aspect=true',
+      stock:10, 
       categoria:'Consolas',
       oferta:false },
     { 
       id:2,
       nombre:'Xbox Series X',
       descripcion:'Consola de próxima generación',
-      imagen:'https://i5.walmartimages.com/asr/fd9cc3cc-3533-4eec-a87d-e6abcc77aae7.0e7d395789bb5e75eb627b80cfe78b13.jpeg',
       precio:350000,
+      imagenUrl:'https://i5.walmartimages.com/asr/fd9cc3cc-3533-4eec-a87d-e6abcc77aae7.0e7d395789bb5e75eb627b80cfe78b13.jpeg',
+      stock:15,
       categoria:'Consolas',
       oferta:true },
     { 
@@ -26,7 +28,8 @@ const seed: DB = {
       nombre:'Nintendo Switch OLED',
       descripcion:'Modelo OLED 7"', 
       precio:399990, 
-      imagen:'https://media.solotodo.com/media/products/1473681_picture_1634002127.jpg',
+      imagenUrl:'https://media.solotodo.com/media/products/1473681_picture_1634002127.jpg',
+      stock:8,
       categoria:'Consolas',
       oferta:false },
   
@@ -35,7 +38,8 @@ const seed: DB = {
       nombre:'The Last of Us Part I',
       descripcion:'Acción y aventura',
       precio:69990,
-      imagen:'https://image.api.playstation.com/vulcan/ap/rnd/202206/0719/nsB47QdrajA2tz9ZDtPX1dPr.png',
+      imagenUrl:'https://image.api.playstation.com/vulcan/ap/rnd/202206/0719/nsB47QdrajA2tz9ZDtPX1dPr.png',
+      stock:20,
       categoria:'Juegos',
       oferta:true },
 
@@ -44,7 +48,8 @@ const seed: DB = {
       nombre:'Halo Infinite',
       descripcion:'Shooter icónico de Xbox',
       precio:59990,
-      imagen:'https://store-images.s-microsoft.com/image/apps.56579.14158640560789719.0ace7ee4-abf5-4ad7-83ca-06d62c241bf1.335bbd79-8495-44cf-9732-0fd940a03c17?q=90&w=177&h=177',
+      imagenUrl:'https://store-images.s-microsoft.com/image/apps.56579.14158640560789719.0ace7ee4-abf5-4ad7-83ca-06d62c241bf1.335bbd79-8495-44cf-9732-0fd940a03c17?q=90&w=177&h=177',
+      stock:25,
       categoria:'Juegos',
       oferta:false },
     { 
@@ -52,7 +57,8 @@ const seed: DB = {
       nombre:'Teclado Mecánico RGB',
       descripcion:'Switch rojo gamer',
       precio:28990, 
-      imagen:'https://images-cdn.ubuy.com.sa/64497d52a7848c3d495df453-redragon-k556-rgb-led-backlit-wired.jpg',
+      imagenUrl:'https://images-cdn.ubuy.com.sa/64497d52a7848c3d495df453-redragon-k556-rgb-led-backlit-wired.jpg',
+      stock:30,
       categoria:'Periféricos',
       oferta:true },
 
@@ -61,7 +67,8 @@ const seed: DB = {
       nombre:'Mouse Gamer 16000 DPI',
       descripcion:'Ergonómico, RGB',
       precio:29990,
-      imagen:'https://http2.mlstatic.com/D_NQ_NP_700630-MLU78175831151_082024-O.webp',
+      imagenUrl:'https://http2.mlstatic.com/D_NQ_NP_700630-MLU78175831151_082024-O.webp',
+      stock:40,
       categoria:'Periféricos',
       oferta:false },
 
@@ -70,7 +77,8 @@ const seed: DB = {
       nombre: 'Uncharted 4: A Thief\'s End',
       descripcion: 'Aventura épica de acción',
       precio: 49990,
-      imagen: 'https://juegosdigitaleschile.com/files/images/productos/1538764920-uncharted-4-el-desenlace-del-ladron-ps4.jpg',
+      imagenUrl: 'https://juegosdigitaleschile.com/files/images/productos/1538764920-uncharted-4-el-desenlace-del-ladron-ps4.jpg',
+      stock: 20,
       categoria: 'Juegos',
       oferta: true
       }

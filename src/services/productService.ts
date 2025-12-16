@@ -35,7 +35,7 @@ export const createProducto = async (producto: Omit<Producto, 'id'>) => {
     }
 };
 
-// 2. ACTUALIZAR PRODUCTO (PROTEGIDO - ADMIN)
+// 2. ACTUALIZAR PRODUCTO 
 export const updateProducto = async (id: number, producto: Partial<Producto>) => {
     try {
         const headers = getAuthHeaders();
@@ -48,7 +48,7 @@ export const updateProducto = async (id: number, producto: Partial<Producto>) =>
     }
 };
 
-// 3. ELIMINAR PRODUCTO (PROTEGIDO - ADMIN)
+// 3. ELIMINAR PRODUCTO 
 export const deleteProducto = async (id: number) => {
     try {
         const headers = getAuthHeaders();

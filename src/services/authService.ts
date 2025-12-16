@@ -30,9 +30,9 @@ export const loginUser = async (email: string, password: string): Promise<AuthRe
             email,
             password
         });
-        return response.data; // Devuelve token, nombre, rol
+        return response.data; 
     } catch (error: any) {
-        // Manejo específico de credenciales incorrectas
+       
         throw new Error(error.response?.data?.message || "Credenciales incorrectas o error de servidor.");
     }
 };
